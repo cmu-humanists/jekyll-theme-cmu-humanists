@@ -1,0 +1,13 @@
+---
+layout: page
+title: Discussion Topics
+excerpt: "All our weekly meeting discussion topics and blurbs."
+show_logo: true
+search_omit: true
+---
+
+<ul class="post-list">
+  {% for post in site.categories.discussions %}
+  {% include post-list.html %}
+  {% endfor %}
+</ul>

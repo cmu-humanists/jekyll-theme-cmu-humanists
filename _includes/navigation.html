@@ -1,0 +1,35 @@
+<div class="navigation-wrapper">
+	<nav role="navigation" {% if page.animate %}class="animated drop"{% endif %}>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <div class="mobile-nav">
+      <label class="menu-icon" for="menu-btn">
+        <span class="bar-top"></span>
+        <span class="bar-middle"></span>
+        <span class="bar-bottom"></span>
+      </label>
+    </div>
+    <ul class="menu">
+      {% for link in site.data.navigation %}
+		    {% if link.url contains 'http' %}
+		      {% assign domain = '' %}
+		    {% else %}
+		      {% assign domain = site.url %}
+		    {% endif %}
+		  <li><a href="{{ domain }}{{ link.url }}" {% if link.url contains 'http' %}target="_blank"{% endif %}>{{ link.title }}</a></li>
+		  {% endfor %}
+	  </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+{% if page.show_logo %}
+<header class="masthead">
+	<div class="wrap">
+		<a href="{{ site.url }}/" rel="home" title="{{ site.title }}">
+      <img src="{{ site.url }}/images/{{ site.logo }}" width="400" height="200" alt="{{ site.title }} logo" {% if page.animate %}class="animated fadeInDown"{% endif %}>
+    </a>
+    {% if page.show_description %}
+		<h2 class="site-description{% if page.animate %} animated fadeIn{% endif %}" itemprop="description">{{ site.description }}</h2>
+    {% endif %}
+	</div>
+</header><!-- /.masthead -->
+{% endif %}

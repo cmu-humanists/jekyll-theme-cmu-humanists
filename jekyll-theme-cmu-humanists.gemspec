@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-feed", "~> 0.6"
   spec.add_runtime_dependency "jekyll-sitemap", "~> 1.0.0"
   spec.add_runtime_dependency "font-awesome-sass", "~> 4.7.0"
-  spec.add_runtime_dependency "bourbon", "~> 4.3.4"
+  spec.add_runtime_dependency "bourbon", "~> 4.0.0"
   spec.add_runtime_dependency "neat", "~> 1.6.0"
 
   spec.add_development_dependency "bundler", "~> 1.12"

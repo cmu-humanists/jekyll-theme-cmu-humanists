@@ -8,10 +8,10 @@ sitemap: false
    Vendor
    ========================================================================== */
 
-@import "vendor/font-awesome/font-awesome"; /* Font Awesome icons */
-@import "vendor/bourbon/bourbon"; /* Bourbon mixins (bourbon.io) */
+@import "bourbon/bourbon"; /* Bourbon mixins (bourbon.io) */
+@import "neat"; /* Bourbon Neat grid mixins (neat.bourbon.io) */
 @import "grid-settings"; /* Bourbon Neat settings */
-@import "vendor/neat/neat"; /* Bourbon Neat grid mixins (neat.bourbon.io) */
+@import "font-awesome"; /* Font Awesome icons */
 
 /*
    Global

@@ -1,6 +1,3 @@
-// UTILITY MIXINS
-// --------------------------------------------------
-
 // Webkit-style focus
 // --------------------
 @mixin tab-focus() {
@@ -195,3 +192,28 @@ width : 1px;
 margin : -1px; 
 padding : 0; 
 border : 0; }
+
+/// Taken from bourbon sass
+/// Provides an easy way to include a clearfix for containing floats.
+///
+/// @link http://cssmojo.com/latest_new_clearfix_so_far/
+///
+/// @example scss - Usage
+///   .element {
+///     @include clearfix;
+///   }
+///
+/// @example css - CSS Output
+///   .element::after {
+///     clear: both;
+///     content: "";
+///     display: table;
+///   }
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}

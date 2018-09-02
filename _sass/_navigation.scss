@@ -18,7 +18,7 @@
     transition: max-height .2s ease-out;
     @include clearfix;
 
-    @include media($medium) {
+    @media #{$medium} {
       width: auto;
       margin: 0 0 20px;
       padding: 4px 20px;
@@ -35,7 +35,7 @@
     text-transform: uppercase;
     color: $white;
 
-    @include media($medium) {
+    @media #{$medium} {
       @include font-size(14,no);
       float: left;
     }
@@ -50,7 +50,7 @@
     margin-bottom: 10px;
     padding: 12px 20px;
 
-    @include media($medium) {
+    @media #{$medium} {
       margin-bottom: 0;
       padding: 6px 10px;
     }
@@ -88,7 +88,7 @@
         transition: all .2s ease-out;
       }
 
-      @include media($medium) {
+      @media #{$medium} {
         display: none;
       }
     }

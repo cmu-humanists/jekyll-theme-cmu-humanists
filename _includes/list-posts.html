@@ -1,0 +1,31 @@
+{% capture nowunix %}{{'now' | date: '%s'}}{% endcapture %}
+{% assign any-upcoming = false %}
+<ul class="post-list">
+  {% for post in include.posts limit: include.limit %}
+    {% capture posttime %}{{ post.date | date: '%s' }}{% endcapture %}
+    {% case include.time %}
+      {% when "upcoming" %}
+        {% if posttime >= nowunix %}
+          {% assign any-upcoming = true %}
+          {% include list-posts-li.html %}
+        {% endif %}
+      {% when "past" %}
+        {% if posttime < nowunix %}
+          {% include list-posts-li.html %}
+        {% endif %}
+      {% else %}
+          {% assign any-upcoming = true %}
+          {% include list-posts-li.html %}
+    {% endcase %}
+  {% endfor %}
+  {% if any-upcoming == false %}
+  <li><article>
+    <div class="entry-header">
+      <div class="title">
+        {{ include.no-upcoming-text }}
+      </div>
+    </div>
+  </article>
+  </li>
+  {% endif %}
+</ul>

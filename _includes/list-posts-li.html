@@ -1,0 +1,24 @@
+<li><article>
+  <a href="{{ site.url }}{{ post.url }}">
+    <div class="entry-header">
+      <div class="title">
+        {{ post.title }}
+      </div>
+      <div class="entry-info">
+        <div class="entry-date">
+          <time datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: "%B %d, %Y" }}
+          </time>
+        </div>
+        {% if include.category-tag %}
+        <div class="category-tag">
+          {{ post.category-description }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="excerpt">
+      {{ post.content | markdownify | strip_html | replace: '\n', ' ' | escape_once | truncatewords: 45 }}
+    </div>
+  </a>
+</article></li>

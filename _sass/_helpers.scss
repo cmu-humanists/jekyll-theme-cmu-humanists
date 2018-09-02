@@ -69,7 +69,7 @@ figure {
 
   &.half {
 
-    @include media($large) {
+    @media #{$large} {
 
       img {
         width: 47.5%;
@@ -88,7 +88,7 @@ figure {
 
   &.third {
 
-    @include media($large) {
+    @media #{$large} {
 
       img {
         width: 30.8%;

@@ -4,56 +4,57 @@
 {% include head.html %}
 </head>
 
-<body id="post">
-
-{% include navigation.html %}
-
-<div id="main" role="main">
-  <article class="hentry">
-    <div class="entry-wrapper">
-    {% if page.banner %}<img src="{{ site.url }}/images/{{ page.banner }}" class="entry-feature-image" alt="{{ page.title }}">{% endif %}
-      <header class="entry-header">
-        <ul class="entry-tags">
-          {% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}">{{ tag }}</a></li>{% endfor %}
-        </ul>
-        {% if page.link %}
-          <h1 class="entry-title"><a href="{{ page.link }}">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %} <span class="link-arrow">&rarr;</span></a></h1>
-        {% else %}
-          <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
-        {% endif %}
+<body>
+  {% include navigation.html %}
+  <main>
+    <article id="post">
+      {% if page.banner %}<img src="{{ site.url }}{{ page.banner }}" class="banner" alt="{{ page.title }} Banner">{% endif %}
+      <header>
+        <h1 class="post-entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
       </header>
-      <footer class="entry-meta">
+      {% if page.entry-meta %}
+      <div class="entry-meta">
         {% if page.author %}
-          {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.owner %}
+        {% assign author = site.data.people[page.author] %}{% else %}{% assign author = site.owner %}
         {% endif %}
         {% if author.avatar contains 'http' %}
-          <img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"/>
+        <img src="{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"/>
         {% elsif author.avatar %}
-          <img src="{{ site.url }}/images/bio-photos/{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"/>
+        <img src="{{ site.url }}/images/bio-photos/{{ author.avatar }}" class="bio-photo" alt="{{ author.name }} bio photo"/>
         {% endif %}
         <span class="author vcard">By <span class="fn">{{ author.name }}</span></span>
         <span class="entry-date date published"><time datetime="{{ page.date | date_to_xmlschema }}"><i class="fa fa-calendar-o"></i> {{ page.date | date: "%B %d, %Y" }}</time></span>
-        {% if page.email_sent %}<span class="entry-date date modified"><time datetime="{{ page.email_sent }}"><i class="fa fa-pencil"></i> {{ page.email_sent | date: "%B %d, %Y" }}</time></span>{% endif %}
+        {% if page.scheduled %}<span class="entry-date date modified"><time datetime="{{ page.scheduled }}"><i class="fa fa-pencil"></i> {{ page.scheduled | date: "%B %d, %Y" }}</time></span>{% endif %}
         {% if site.owner.disqus-shortname and page.comments or site.comments %}<span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>{% endif %}
-      </footer>
+
+        <ul class="entry-tags">
+          {% for tag in page.tags %}<li><a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}"> <i class="fa fa-tag"></i> {{ tag }}</a></li>{% endfor %}
+        </ul>
+      </div>
       <div class="entry-content">
+      {% else %}
+      <div class="entry-content-full">
+      {% endif %}
         {{ content }}
+        {% if page.poster %}<img src="{{ site.url }}{{ page.poster }}" class="poster" alt="{{ page.title }} Poster">{% endif %}
+        <footer>
+          <nav class="pagination" role="navigation">
+            {% if page.previous %}
+            <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous: {{ page.previous.title }}</a>
+            {% endif %}
+            {% if page.next %}
+            <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next: {{ page.next.title }}</a>
+            {% endif %}
+          </nav><!-- /.pagination -->
+        </footer>
         {% if site.owner.disqus-shortname and page.comments or site.comments %}
-          <div id="disqus_thread"></div><!-- /#disqus_thread -->
-          {% include disqus-comments.html %}
+        <div id="disqus_thread"></div><!-- /#disqus_thread -->
+        {% include disqus-comments.html %}
         {% endif %}
       </div><!-- /.entry-content -->
-    </div><!-- /.entry-wrapper -->
-    <nav class="pagination" role="navigation">
-      {% if page.previous %}
-        <a href="{{ site.url }}{{ page.previous.url }}" class="btn" title="{{ page.previous.title }}">Previous</a>
-      {% endif %}
-      {% if page.next %}
-        <a href="{{ site.url }}{{ page.next.url }}" class="btn" title="{{ page.next.title }}">Next</a>
-      {% endif %}
-    </nav><!-- /.pagination -->
   </article>
-</div><!-- /#main -->
+</main>
+
 
 <div class="footer-wrapper">
   <footer role="contentinfo" class="entry-wrapper">

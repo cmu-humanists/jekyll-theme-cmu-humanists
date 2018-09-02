@@ -147,14 +147,14 @@ figure {
   a {
 
     img {
-      @include transform(translateY(0));
+      transform: translateY(0);
       -webkit-transition-duration: 0.25s;
       -moz-transition-duration: 0.25s;
       -o-transition-duration: 0.25s;
       opacity: 0.7;
 
       &:hover {
-        @include transform(translateY(-5px));
+        transform: translateY(-5px);
         @include box-shadow(0 0 10px rgba($black, .20));
         opacity: 1;
       }
@@ -228,5 +228,5 @@ pre {
 // ---------------------------------------------------
 
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, .highlight {
-	@include transition(all 0.2s ease);
+	transition: all 0.2s ease;
 }

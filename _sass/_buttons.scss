@@ -8,10 +8,11 @@
 
 .btn {
   display: inline-block;
+  text-align: center;
   margin-bottom: 20px;
   padding: 8px 20px;
   @include font-size(14);
-  background-color: $black;
+  background-color: lighten($black, 30);
   color: $white;
   border: 2px solid $black !important;
   border-radius: $border-radius;

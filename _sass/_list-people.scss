@@ -1,0 +1,66 @@
+.list-people-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  //align-items: flex-start;
+  justify-content: center;
+  //width: 86em; // $x-large
+}
+
+#person {
+  //@include span-columns(12);
+  //margin-right: 12px;
+  //margin: auto;
+  @include font-size(14);
+  text-align: center;
+  width: 100%;
+  @media #{$medium} {
+    width: 50%;
+  }
+
+  a {
+    color: $text-color;
+  }
+
+  //@media #{$large} {
+    //@include span-columns(2.5);
+  //display: inline-block;
+  //vertical-align: top;
+  //width: 0.4 * 48em; //$large;
+  //}
+
+  .bio-photo {
+    //display: inline;
+    margin: auto;
+    margin-bottom: 10px;
+
+    //@media #{$large} {
+      display: block;
+      width: 0.4 * 48em; //$large;
+      height: 0.4 * 48em; //$large;
+      //margin-bottom: 10px;
+      @include rounded(0.3 * 48em);
+      //@include clearfix;
+    //}
+  }
+  .name {
+    text-transform: uppercase;
+    //@media #{$large} {
+      display: inline-block;
+      font-weight: bold;
+    //}
+  }
+  .position {
+    text-transform: uppercase;
+    //@media #{$large} {
+      display: inline-block;
+    //}
+  }
+  .bio {
+    @include font-size(12);
+    padding: 1em;
+    text-align: justify;
+    //@media #{$large} {
+      display: block;
+    //}
+  }
+}

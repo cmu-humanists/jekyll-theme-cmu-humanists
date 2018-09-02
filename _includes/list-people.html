@@ -1,0 +1,15 @@
+<div class="list-people-wrapper">
+{% for author in site.data.people %}
+<article id="person">
+  {% if author[1].avatar contains 'http' %}
+  <img src="{{ author[1].avatar }}" class="bio-photo" alt="{{ author[1].name }} bio photo"/>
+  {% elsif author[1].avatar %}
+  <img src="{{ site.url }}/images/bio-photos/{{ author[1].avatar }}" class="bio-photo" alt="{{ author[1].name }} bio photo"/>
+  {% endif %}
+  <span class="author[1] vcard"><span class="name">{{ author[1].name }}</span></span>
+  &#8226;
+  <span class="postition">{{ author[1].position }}</span>
+  <span class="bio">{{ author[1].bio }}</span>
+</article>
+{% endfor %}
+</div>

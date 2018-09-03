@@ -21,6 +21,7 @@ function initLunr() {
       });
     }
   });
+  console.log("lunr initialized!");
 }
 
 function search() {

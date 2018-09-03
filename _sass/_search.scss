@@ -1,19 +1,19 @@
 /* ==========================================================================
    Search
    ========================================================================== */
-.simple-search {
-	  label {
-		    display: none;
-	  }
-}
 
+.search-wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
 /* input field */
 #search-box {
-		@media #{$medium} {
-			  width: 80%;
-		}
-    width: auto;
-    margin-right: 10px;
+		//@media #{$medium} {
+		//	  width: 80%;
+		//}
+    //width: auto;
+    max-width: 80%;
     padding: 8px 10px;
     @include font-size(14);
     border-width: 2px;

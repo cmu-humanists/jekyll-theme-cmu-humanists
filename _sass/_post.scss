@@ -26,8 +26,8 @@
 
 #post {
 	@include clearfix;
-  border-bottom: 1px solid lighten($black,80);
-  border-bottom: 1px solid rgba($black,.10);
+  //border-bottom: 1px solid lighten($black,80);
+  //border-bottom: 1px solid rgba($black,.10);
 
   //max-width: em(760);
   max-width: 59.5em;
@@ -35,7 +35,7 @@
   margin-right: auto;
 
   margin-top: 0;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
   padding-right: $gutter;
   padding-left: $gutter;
 

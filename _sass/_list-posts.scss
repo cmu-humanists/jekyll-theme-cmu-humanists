@@ -78,3 +78,35 @@
     }
   }
 }
+
+.semesters-wrapper {
+  margin: auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.semesters-wrapper input[type='radio'] {
+  display: none;
+}
+
+.semesters-wrapper label {
+  //width: 10em;
+  margin: 0 0.4em 0.5em;
+  order: -1;
+}
+
+.semesters-wrapper label:hover {
+  cursor: pointer;
+}
+
+.semesters-wrapper ul.post-list {
+  overflow: hidden;
+  padding: 0 10px;
+  display: none;
+  margin-top: 1em;
+}
+
+.semesters-wrapper label + input[type='radio']:checked + ul.post-list {
+  display: block;
+}

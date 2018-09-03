@@ -3,13 +3,20 @@
    ========================================================================== */
 
 .footer-wrapper {
-  @include clearfix;
+  //@include clearfix;
+  //position: absolute;
+  display: block;
+  bottom: 0;
+  //width: 100%;
+  max-width: 59.5em;
   margin: 2em auto;
   text-align: center;
   font-family: $alt-font;
   @include font-size(14);
   font-style: italic;
   color: lighten($text-color,20);
+  border-top: 1px solid rgba($black,.10);
+  padding-top: 1em;
 
   a {
     color: lighten($text-color,20);

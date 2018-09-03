@@ -1,9 +1,7 @@
 <!-- Search text box -->
-<form method="get" action="{{ site.url }}/search/" class="simple-search">
-  <label for="search-box">Search {{ site.title }} for:</label>
-  <input type="search" name="query" id="search-box" placeholder="What are you looking for?" autofocus />
-  <input type="submit" value="Search" class="btn" />
-</form>
+<div class="search-wrapper">
+<input type="search" name="query" id="search-box" onkeyup="search()" placeholder="What are you looking for?" autofocus />
+</div>
 
 <!-- Search results placeholders -->
 <h6 id="num-search-results"> </h6>

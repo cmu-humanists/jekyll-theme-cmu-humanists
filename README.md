@@ -1,11 +1,19 @@
 # jekyll-theme-cmu-humanists
 
 This is the jekyll theme for the [Carnegie Mellon University Humanist League
-website](http://cmuhl.org). This theme was originally inspired by the [So Simple
-Theme](https://github.com/mmistakes/so-simple-theme) although much of the actual
-code has been rewritten. This theme is oriented around providing a website for a
-student organization which has weekly discussion based meetings and brings
+website](http://cmuhl.org). This theme is oriented around providing a website
+for a student organization which has weekly discussion based meetings and brings
 speakers for talks.
+
+This theme was originally inspired by the [So Simple
+Theme](https://github.com/mmistakes/so-simple-theme) although much of the actual
+code has been rewritten to be more modern (So Simple has since been updated with
+more modern css and js), but more importantly to be tailored to our specific
+needs. I also wanted the website to be entirely HTML+CSS - no javascript
+involved so the only javascript you'll see here is in search.html (an google
+analytics) since you can't do that with CSS after all. I've made extensive use
+of CSS3 features such as variables and flexbox.
+
 
 ## Installation
 

@@ -1,8 +1,89 @@
-<!-- Search scripts -->
-<script src="https://unpkg.com/lunr/lunr.js"></script>
-<script src="/assets/search.js"></script>
+<!-- Search text box -->
+<div class="search-wrapper">
+  <input type="text" name="query" id="search-box" onkeyup="search()" placeholder="What are you looking for?" autofocus />
+</div>
 
+<!-- Search results placeholders -->
+<h6 id="num-search-results"></h6>
+<ul class="post-list" id="search-results"></ul>
+
+<!-- Search scripts -->
+<noscript>
+  <h6>It looks like you don't have Javascript enabled. I understad, I wouldn't enable Javascript either if I were you, who knows what it'll do! Unfortunately you will be unable to use the search box without it. Everything else on this site should work though!</h6>
+</noscript>
+
+<script src="https://unpkg.com/lunr/lunr.js"></script>
 <script>
+// https://learn.cloudcannon.com/jekyll/jekyll-search-using-lunr-js/
+// https://www.integralist.co.uk/posts/static-search-with-lunr/
+
+var lunrIndex;
+
+function initLunr() {
+  lunrIndex = lunr(function () {
+    this.ref('id');
+    this.field('title', { boost: 10 });
+    this.field('author');
+    this.field('category');
+    this.field('content');
+
+    for (var key in window.store) {
+      this.add({
+        'id': key,
+        'title': window.store[key].title,
+        'author': window.store[key].author,
+        'category': window.store[key].category,
+        'content': window.store[key].content
+      });
+    }
+  });
+  console.log("lunr initialized!");
+}
+
+function search() {
+  var query = document.getElementById('search-box').value;
+
+  document.getElementById("search-results").innerHTML = null;
+  document.getElementById("num-search-results").innerHTML = null;
+
+  if (query.length < 2) {
+    return;
+  }
+  if (!(query.indexOf(' ') >= 0)) {query += '*';} // to get prefix matches
+
+  var results = lunrIndex.search(query);
+  displaySearchResults(results, window.store);
+}
+
+function displaySearchResults(results, store) {
+  var searchResults = document.getElementById('search-results');
+  var query = document.getElementById('search-box').value;
+
+  if (results.length) {
+    var appendString = '';
+
+    for (var i = 0; i < results.length; i++) {
+      var item = store[results[i].ref];
+      appendString += '<li><article><a href="' + item.url + '">' + item.title;
+      appendString += '<div class="excerpt">' + item.content.substring(0, 150);
+      appendString += '&#8230;</div></a></article></li>';
+    }
+
+    searchResults.innerHTML = appendString;
+
+    var nResults = '';
+    if (results.length == 1) {
+      nResults = '1 result';
+    } else {
+      nResults = results.length + ' results';
+    }
+    document.getElementById('num-search-results').innerHTML = nResults +
+      ' for &ldquo;' + query + '&rdquo;';
+  } else {
+    document.getElementById('num-search-results').innerHTML = 'No results found';
+  }
+}
+
  window.store = {
      {% for post in site.posts %}
      "{{ post.url | slugify }}": {
@@ -15,15 +96,8 @@
      {% unless forloop.last %},{% endunless %}
      {% endfor %}
  };
+
+ document.getElementById("num-search-results").innerHTML = null;
  initLunr();
 </script>
-
-<!-- Search text box -->
-<div class="search-wrapper">
-<input type="text" name="query" id="search-box" onkeyup="search()" placeholder="What are you looking for?" autofocus />
-</div>
-
-<!-- Search results placeholders -->
-<h6 id="num-search-results"> </h6>
-<ul class="post-list" id="search-results"></ul>
 

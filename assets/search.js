@@ -1,7 +1,7 @@
 // https://learn.cloudcannon.com/jekyll/jekyll-search-using-lunr-js/
 // https://www.integralist.co.uk/posts/static-search-with-lunr/
 
-var lunrIndex, results;
+var lunrIndex;
 
 function initLunr() {
   lunrIndex = lunr(function () {
@@ -36,7 +36,6 @@ function search() {
   if (!(query.indexOf(' ') >= 0)) {query += '*';} // to get prefix matches
 
   var results = lunrIndex.search(query);
-  //console.log(results);
   displaySearchResults(results, window.store);
 }
 
@@ -68,6 +67,3 @@ function displaySearchResults(results, store) {
     document.getElementById('num-search-results').innerHTML = 'No results found';
   }
 }
-
-
-initLunr();

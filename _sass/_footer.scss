@@ -3,24 +3,20 @@
    ========================================================================== */
 
 .footer-wrapper {
-  //@include clearfix;
-  //position: absolute;
   display: block;
   bottom: 0;
-  //width: 100%;
   max-width: 59.5em;
   margin: 2em auto;
   text-align: center;
-  font-family: $alt-font;
-  @include font-size(14);
+  font-family: var(--alt-font);
+  font-size: 0.875rem; line-height: 1.7;
   font-style: italic;
-  color: lighten($text-color,20);
-  border-top: 1px solid rgba($black,.10);
+  color: hsl(var(--text-color-hs), calc(var(--text-color-l) + 20%));
+  border-top: 1px solid var(--border-color);
   padding-top: 1em;
-
-  a {
-    color: lighten($text-color,20);
-  }
+}
+.footer-wrapper a {
+  color: hsl(var(--text-color-hs), calc(var(--text-color-l) + 20%));
 }
 
 /*
@@ -29,12 +25,10 @@
 
 .social-icons {
   margin: 1em 0 2em;
-
-  a {
-    padding: 4px 8px;
-
-    &:hover {
-      color: $black;
-    }
-  }
+}
+.social-icons a {
+  padding: 4px 8px;
+}
+.social-icons a:hover {
+  color: black;
 }

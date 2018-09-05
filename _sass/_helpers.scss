@@ -35,10 +35,9 @@
   list-style: none;
   margin-left: 0;
   padding-left: 0;
-
-  li {
-    list-style-type: none;
-  }
+}
+.unstyled-list li {
+  list-style-type: none;
 }
 
 /*
@@ -49,58 +48,43 @@
 
 .pull-left {
   float: left;
-  padding-right: $gutter;
+  padding-right: var(--gutter);
 }
 
 /* float right */
 
 .pull-right {
   float: right;
-  padding-left: $gutter;
+  padding-left: var(--gutter);
 }
 
 /*
    Image layout in <figure>
    ========================================================================== */
 
-figure {
-
-  /* 2 images in a row. should be of equal height/width to maintain layout */
-
-  &.half {
-
-    @media #{$large} {
-
-      img {
-        width: 47.5%;
-        float: left;
-        margin-right: 2.5%;
-        margin-bottom: 2.5%;
-      }
-
-      figcaption {
-        clear: left;
-      }
-    }
+/* 2 images in a row. should be of equal height/width to maintain layout */
+@media only screen and (min-width: 62em) {
+  figure.half img {
+    width: 47.5%;
+    float: left;
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
   }
+  figure.half figcaption {
+    clear: left;
+  }
+}
 
-  /* 3 images in a row. should be of equal height/width to maintain layout */
-
-  &.third {
-
-    @media #{$large} {
-
-      img {
-        width: 30.8%;
-        float: left;
-        margin-right: 2.5%;
-        margin-bottom: 2.5%;
-      }
-
-      figcaption {
-        clear: left;
-      }
-    }
+/* 3 images in a row. should be of equal height/width to maintain layout */
+@media only screen and (min-width: 62em) {
+  figure.third img {
+    width: 30.8%;
+    float: left;
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
+  }
+  figure.third figcaption {
+    clear: left;
   }
 }
 

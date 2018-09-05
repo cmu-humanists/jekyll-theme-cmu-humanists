@@ -1,12 +1,16 @@
+/* ==========================================================================
+   calendar
+   ========================================================================== */
+
 /* Responsive iFrame */
 /* https://answers.squarespace.com/questions/54774/how-to-embed-a-google-calendar-in-a-responsive-way.html */
 
-@media #{$max-medium} {
+@media only screen and (max-width: 48em) {
   .big-container {
     display: none;
   }
 }
-@media #{$medium} {
+@media only screen and (min-width: 44em) {
   .small-container {
     display: none;
   }

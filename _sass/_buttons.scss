@@ -2,41 +2,23 @@
    Buttons
    ========================================================================== */
 
-/*
-   Default button
-   ========================================================================== */
-
 .btn {
   display: inline-block;
   text-align: center;
   margin-bottom: 20px;
   padding: 8px 20px;
-  @include font-size(14);
-  background-color: lighten($black, 30);
-  color: $white;
-  border: 2px solid $black !important;
-  border-radius: $border-radius;
-
-  &:visited {
-    color: $white;
-  }
-
-  &:hover {
-    background-color: $white;
-    color: $black;
-  }
+  font-size: 0.875rem; line-height: 1.7;
+  background-color: hsl(0, 0%, 30);
+  color: white;
+  border: 2px solid black !important;
+  border-radius: var(--border-radius);
 }
 
-/*
-   Close button
-   ========================================================================== */
+.btn:visited {
+  color: white;
+}
 
-.close-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 1;
-  background-color: transparent;
-  border: 0 solid transparent;
-  color: $white;
+.btn:hover {
+  background-color: white;
+  color: black;
 }

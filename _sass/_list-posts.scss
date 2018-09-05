@@ -2,54 +2,50 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
-
-  li {
-    padding: 8px 0;
-    margin-bottom: 0px;
-    border-bottom: 1px solid lighten($black,80);
-    border-bottom: 1px solid rgba($black,.10);
-    @include clearfix;
-
-    > a {
-      border-bottom-width: 0; /* remove underlines from items in post indexes */
-    }
+}
+.post-list li {
+  padding: 8px 0;
+  margin-bottom: 0px;
+  border-bottom: 1px solid hsl(0, 0%, 80%);
+  border-bottom: 1px solid var(--border-color);
+}
+.post-list li > a {
+  border-bottom-width: 0; /* remove underlines from items in post indexes */
+}
+@media only screen and (min-width: 44em) {
+  .post-list .entry-header {
+    display: flex;
+    justify-content: space-between;
   }
-
-  .entry-header {
-    @media #{$small} {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .title {
-      @include font-size(18,no);
-    }
-    .entry-info {
-      @include font-size(14,no);
-      text-transform: uppercase;
-      flex-shrink: 0;
-
-      .entry-date {
-        display: inline;
-      }
-      .category-tag:before {
-        content: "\2022";
-      }
-      .category-tag {
-        font-weight: bold;
-        display: inline;
-      }
-    }
-  }
-
-  .excerpt {
-    @include font-size(14, no, 18);
-    //height: 3 * (1 + 14pt);
-    //overflow: hidden;
-    //text-overflow: ellipsis;
-    //white-space: nowrap;
-    //word-wrap: normal;
-  }
+}
+.post-list .entry-header .title {
+  font-size: 1.125rem;
+  line-height: 1.33;
+}
+.post-list .entry-header .entry-info {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.post-list .entry-header .entry-info .entry-date {
+  display: inline;
+}
+.post-list .entry-header .entry-info .category-tag:before {
+  content: "\2022";
+}
+.post-list .entry-header .entry-info .category-tag {
+  font-weight: bold;
+  display: inline;
+}
+.post-list .excerpt {
+  font-size: 0.875rem;
+  line-height: 1.29;
+  //height: 3 * (1 + 14pt);
+  //overflow: hidden;
+  //text-overflow: ellipsis;
+  //white-space: nowrap;
+  //word-wrap: normal;
 }
 
 .tag-box {
@@ -57,56 +53,54 @@
   margin: 0;
   padding: 4px 0;
   overflow: hidden;
-  @include clearfix;
-
-  &.inline li {
-    float: left;
-    @include font-size(14);
-    line-height: 2.5;
-  }
-
-  a {
-    padding: 4px 6px;
-    margin: 2px;
-    background-color: lighten($black, 90);
-    @include rounded(4px);
-    text-decoration: none;
-
-    span {
-      vertical-align: super;
-      @include font-size(10);
-    }
-  }
+}
+.tag-box.inline li {
+  float: left;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  line-height: 2.5;
+}
+.tag-box a {
+  padding: 4px 6px;
+  margin: 2px;
+  background-color: hsl(0, 0%, 90%);
+  border-radius: 4px;
+  text-decoration: none;
+}
+.tag-box a span {
+  vertical-align: super;
+  font-size: 0.625rem;
+  line-height: 2.4;
 }
 
-.semesters-wrapper {
+.center-btns {
   margin: auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
 
-.semesters-wrapper input[type='radio'] {
+.center-btns input[type='radio'] {
   display: none;
 }
 
-.semesters-wrapper label {
+.center-btns label {
   //width: 10em;
   margin: 0 0.4em 0.5em;
   order: -1;
 }
 
-.semesters-wrapper label:hover {
+.center-btns label:hover {
   cursor: pointer;
 }
 
-.semesters-wrapper ul.post-list {
+.center-btns ul.post-list {
   overflow: hidden;
   padding: 0 10px;
   display: none;
   margin-top: 1em;
 }
 
-.semesters-wrapper label + input[type='radio']:checked + ul.post-list {
+.center-btns label + input[type='radio']:checked + ul.post-list {
   display: block;
 }

@@ -9,14 +9,11 @@
 }
 /* input field */
 #search-box {
-		//@media #{$medium} {
-		//	  width: 80%;
-		//}
-    //width: auto;
     max-width: 80%;
     padding: 8px 10px;
-    @include font-size(14);
+    font-size: 0.875rem;
+    line-height: 1.7;
     border-width: 2px;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
 }
 

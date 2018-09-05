@@ -3,39 +3,34 @@
    ========================================================================== */
 
 form {
-	margin: 0 0 5px 0;
-
-	fieldset {
-		margin-bottom: 5px;
-		padding: 0;
-		border-width: 0;
-	}
-
-	legend {
-		display: block;
-		width: 100%;
-		margin-bottom: 5px * 2;
-		*margin-left: -7px;
-		padding: 0;
-		color: $text-color;
-		border: 0;
-		border-bottom: 1px solid lighten($black, 80);
-		white-space: normal;
-	}
-
-	p {
-		margin-bottom: 5px / 2;
-	}
-
-	ul {
-		list-style-type: none;
-		margin: 0 0 5px 0;
-		padding: 0;
-	}
-
-	br {
-		display: none;
-	}
+  margin: 0 0 5px 0;
+}
+form fieldset {
+  margin-bottom: 5px;
+  padding: 0;
+  border-width: 0;
+}
+form legend {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  *margin-left: -7px;
+  padding: 0;
+  color: var(--text-color);
+  border: 0;
+	border-bottom: 1px solid hsl(0, 0%, 80%);
+  white-space: normal;
+}
+form p {
+  margin-bottom: 5px / 2;
+}
+form ul {
+  list-style-type: none;
+  margin: 0 0 5px 0;
+  padding: 0;
+}
+form br {
+  display: none;
 }
 
 label,
@@ -44,14 +39,13 @@ button,
 select,
 textarea {
 	vertical-align: baseline;
-	*vertical-align: middle;
+  *vertical-align: middle;
 }
 
 input,
 button,
 select,
 textarea {
-	font-family: $base-font;
 	box-sizing: border-box;
 }
 
@@ -59,30 +53,30 @@ label {
 	display: block;
 	margin-bottom: 10px / 8;
 	font-weight: bold;
-	color: $text-color;
+	color: var(--text-color);
 	cursor: pointer;
-
-	input,
-	textarea,
-	select {
-		display: block;
-	}
+}
+label input,
+label textarea,
+label select {
+  display: block;
 }
 
 input,
 textarea,
 select {
-	display: inline-block;
-	width: 100%;
-	padding: 4px;
-	margin-bottom: 5px / 4;
-	background-color: $white;
-	border: 1px solid lighten($black, 80);
-	color: $text-color;
-
-	&:hover {
-		border-color: lighten($accent-color, 50);
-	}
+  display: inline-block;
+  width: 100%;
+  padding: 4px;
+  margin-bottom: 5px / 4;
+  background-color: white;
+	border: 1px solid hsl(0, 0%, 80%);
+  color: var(--text-color);
+}
+input:hover,
+textarea:hover,
+select:hover {
+	border-color: hsl(0, 0%, 50%);
 }
 
 .input-mini {
@@ -103,7 +97,7 @@ input[type="radio"] {
 	*margin-top: 0;
 	line-height: normal;
 	cursor: pointer;
-	@include rounded(0);
+  border-radius : 0;
 	border: 0 \9;
 }
 
@@ -117,7 +111,7 @@ input[type="radio"] {
 
 input[type="image"] {
 	border: 0;
-	@include box-shadow(none);
+  box-shadow : none;
 }
 
 input[type="file"] {
@@ -127,7 +121,7 @@ input[type="file"] {
 	border: initial;
 	background-color: transparent;
 	background-color: initial;
-	@include box-shadow(none);
+  box-shadow : none;
 }
 
 input[type="button"],
@@ -146,7 +140,7 @@ input[type="file"] {
 
 select {
 	width: auto;
-	background-color: $white;
+	background-color: white;
 }
 
 select[multiple],
@@ -155,7 +149,7 @@ select[size] {
 }
 
 textarea {
-	@include resize(vertical);
+  resize : vertical;
 	height: auto;
 	overflow: auto;
 	vertical-align: top;
@@ -208,7 +202,7 @@ textarea[readonly] {
 
 input:focus,
 textarea:focus {
-	border-color: $accent-color;
+	border-color: black;
 	outline: 0;
 	outline: thin dotted \9;
 }
@@ -217,7 +211,7 @@ input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus,
 select:focus {
-	@include box-shadow(none);
+  box-shadow : none;
 }
 
 // help text
@@ -225,7 +219,7 @@ select:focus {
 
 .help-block,
 .help-inline {
-	color: lighten($black, 50);
+	color: hsl(0, 0%, 50);
 }
 
 .help-block {

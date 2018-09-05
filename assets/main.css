@@ -1107,6 +1107,18 @@ select:focus {
   display: none;
 }
 
+.center-btns a {
+  margin: 0.5em;
+  width: 100%
+}
+@media only screen and (min-width: 44em) {
+  .center-btns a {
+    margin: 0.5em;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+}
+
 .center-btns label {
   /*width: 10em;*/
   margin: 0 0.4em 0.5em;

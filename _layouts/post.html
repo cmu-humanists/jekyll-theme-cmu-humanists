@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
 {% include head.html %}
 </head>
@@ -10,7 +10,7 @@
     <article id="post">
       {% if page.banner %}<img src="{{ site.url }}{{ page.banner }}" class="banner" alt="{{ page.title }} Banner">{% endif %}
       <header>
-        <h1 class="post-entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
+        <h1 class="entry-title">{% if page.headline %}{{ page.headline }}{% else %}{{ page.title }}{% endif %}</h1>
       </header>
       {% if page.entry-meta %}
       <div class="entry-meta">

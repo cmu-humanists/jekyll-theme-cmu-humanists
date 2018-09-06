@@ -21,6 +21,10 @@ var lunrIndex;
 
 function initLunr() {
   lunrIndex = lunr(function () {
+    //https://github.com/olivernn/lunr.js/issues/256
+    this.pipeline.remove(lunr.stemmer)
+    this.searchPipeline.remove(lunr.stemmer)
+
     this.ref('id');
     this.field('title', { boost: 10 });
     this.field('author');
